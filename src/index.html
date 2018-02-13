@@ -28,7 +28,7 @@
             </table>
             <div class="pgntn-block-wrapper">
                 <ul class="paginagion-block">
-                    <pgnt-button v-bind:qnty="pgsQntty" v-for="n in pgsQntty" v-bind:key="n.id" v-on:choosepage="showTable(n)">{{ n }}</pgnt-button>
+                    <pgnt-button v-bind:qnty="pgsQntty" v-for="n in pgsQntty" v-bind:key="n.id" v-on:choosepage="showTable(n)" :class="{active: activePageId === n}">{{ n }}</pgnt-button>
                 </ul>
             </div>
         </div>

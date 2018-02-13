@@ -105,11 +105,11 @@ body {
             text-decoration: none;
             display: block;
             height: 40px;
+        }
 
-            &.activepgbutton {
+        &.active a {
                 border: 1px solid #ccc;
                 border-radius: 3px;
-            }
         }
 
         &:hover

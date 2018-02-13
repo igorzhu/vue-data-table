@@ -16,20 +16,12 @@ window.onload = function(){
 
     var pgntButton = Vue.component('pgnt-button', {
         template: '<li class="pgnt-btn">' +
-                        '<a v-on:click.prevent="buttonClick"  v-bind:class="{activepgbutton : isActive}"  href="#"><slot>{{ qnty }}</slot></a>' +
+                        '<a v-on:click.prevent="buttonClick"  href="#"><slot>{{ qnty }}</slot></a>' +
                   '</li>',
         props: ['qnty'],
-        data: function () {
-            return {
-                isActive: false
-            }
-        },
         methods: {
             buttonClick: function (event) {
 
-                console.log(event.target);
-
-                this.isActive ? this.isActive = false: this.isActive = true;
                 this.$emit('choosepage');
             }
         }
@@ -46,7 +38,8 @@ window.onload = function(){
             amountDataSort: 1,
             costDataSort: 1,
             pgsQntty: 0,
-            isBtnActive: false
+            isBtnActive: false,
+            activePageId: 1
         },
         created: function () {
             this.paginate();
@@ -131,15 +124,7 @@ window.onload = function(){
 
                 this.arrShown = this.dataArray.slice((pageNum - 1) * itemsShownNum, pageNum * itemsShownNum);
 
-                //console.log(document.querySelector('.pgnt-btn'));
-
-                //this.isBtnActive = true;
-
-                /*document.querySelector('.pgnt-btn a').classList.remove('active');
-
-                document.querySelector('.pgnt-btn a:nth-child(' + pageNum + ')').className += 'active';*/
-
-
+                this.activePageId = pageNum;
             }
         }
     });
