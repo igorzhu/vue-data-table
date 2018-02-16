@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue data-table</title>
+<link href="css/main.bundle.css" rel="stylesheet"></head>
+<body>
+    <div class="wrapper">
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <td v-on:click.self.stop="sort" data-hname="id" v-bind:data-sort="idDataSort"><span>id</span></td>
+                        <td v-on:click.self.stop="sort" data-hname="title" v-bind:data-sort="titleDataSort"><span>Наименование</span></td>
+                        <td v-on:click.self.stop="sort" data-hname="amount" v-bind:data-sort="amountDataSort"><span>Количество</span></td>
+                        <td v-on:click.self.stop="sort" data-hname="cost" v-bind:data-sort="costDataSort"><span>Цена за единицу</span></td>
+                    </tr>
+                    <tr is="adding-row" v-if="isAddRowShown" v-on:closeit="closeAddingRow" v-on:add-row="addNewRow" v-on:show-error="showErrorRow"></tr>
+                    <tr is="errow-row" v-if="isErrowRowShown"></tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Общая стоимость: </td>
+                        <td class="total-cost">{{ totalSum }}</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr is="table-row" v-bind:data-arr="arrShown" v-bind:item="item" v-for="item in arrShown" v-bind:key="item.id"></tr>
+                </tbody>
+            </table>
+            <div class="pgntn-block-wrapper">
+                <ul class="paginagion-block">
+                    <pgnt-button v-bind:qnty="pgsQntty" v-for="n in pgsQntty" v-bind:key="n.id" v-on:choosepage="showTable(n)" :class="{active: activePageId === n}">{{ n }}</pgnt-button>
+                </ul>
+            </div>
+            <div class="btns-block">
+                <button class="show-adding-tr" v-on:click="showAddingRow">Добавить запись</button>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="js/main.bundle.js"></script></body>
+</html>
