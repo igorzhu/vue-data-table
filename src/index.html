@@ -15,6 +15,8 @@
                         <td v-on:click.self.stop="sort" data-hname="amount" v-bind:data-sort="amountDataSort"><span>Количество</span></td>
                         <td v-on:click.self.stop="sort" data-hname="cost" v-bind:data-sort="costDataSort"><span>Цена за единицу</span></td>
                     </tr>
+                    <tr is="adding-row" v-if="isAddRowShown" v-on:closeit="closeAddingRow" v-on:add-row="addNewRow" v-on:show-error="showErrorRow"></tr>
+                    <tr is="errow-row" v-if="isErrowRowShown"></tr>
                 </thead>
                 <tfoot>
                     <tr>
@@ -30,6 +32,9 @@
                 <ul class="paginagion-block">
                     <pgnt-button v-bind:qnty="pgsQntty" v-for="n in pgsQntty" v-bind:key="n.id" v-on:choosepage="showTable(n)" :class="{active: activePageId === n}">{{ n }}</pgnt-button>
                 </ul>
+            </div>
+            <div class="btns-block">
+                <button class="show-adding-tr" v-on:click="showAddingRow">Добавить запись</button>
             </div>
         </div>
     </div>

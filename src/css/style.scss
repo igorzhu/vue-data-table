@@ -78,6 +78,40 @@ body {
     }
 }
 
+.pgntn-block-wrapper {
+
+    margin-bottom: 20px;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        float: none;
+        clear: both;
+    }
+}
+
+.btns-block button
+{
+    border: 1px solid #ccc;
+    height: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0 10px;
+    color: #333;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: #eee;
+}
+
+.btns-block button:hover
+{
+    background-color: #ddd;
+}
+
+
+
 .paginagion-block::after {
     content: "";
     display: block;
@@ -130,4 +164,70 @@ body {
 
 
     }
+}
+
+.btns-block button:hover
+{
+    background-color: #ddd;
+}
+
+.add-entry
+{
+    display: inline-block;
+    background-color: #04fb38;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-addingTr
+{
+    display: inline-block;
+    background-color: red;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.adding-tr input
+{
+    height: 25px;
+    box-sizing: border-box;
+    padding: 0 3px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.adding-tr input.id-input
+{
+    width: 80px;
+}
+
+.adding-tr
+{
+    white-space: nowrap;
+}
+
+.error-tr td
+{
+    color: red;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
 }
